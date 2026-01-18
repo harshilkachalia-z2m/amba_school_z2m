@@ -1,249 +1,70 @@
-/* ================= RESET ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* ================= DESIGN SYSTEM ================= */
-:root {
-    /* Brand */
-    --primary: #2563eb;          /* Blue */
-    --accent: #f97316;           /* Orange */
-    --success: #10b981;
-    --warning: #f59e0b;
-
-    /* Backgrounds */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-tertiary: #f1f5f9;
-
-    /* Text */
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
-
-    /* Borders */
-    --border-light: #e2e8f0;
-
-    /* Shadows (soft & pro) */
-    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04);
-    --shadow-md: 0 6px 12px rgb(0 0 0 / 0.08);
-    --shadow-lg: 0 16px 30px rgb(0 0 0 / 0.12);
-}
-
-/* ================= BASE ================= */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* ================= BACKGROUND TEXT ================= */
-.background-text {
-    position: fixed;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    font-size: clamp(8rem, 20vw, 18rem);
-    font-weight: 900;
-    color: #f1f5f9;
-    z-index: 0;
-    pointer-events: none;
-    letter-spacing: -0.06em;
-}
-
-/* ================= NAVBAR ================= */
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-light);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    display: grid;
-    place-items: center;
-    color: white;
-    font-weight: 700;
-}
-
-.nav-tabs {
-    display: flex;
-    background: var(--bg-secondary);
-    padding: 0.3rem;
-    border-radius: 10px;
-}
-
-.tab {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.85rem;
-    border-radius: 8px;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.tab.active {
-    background: white;
-    color: var(--accent);
-    box-shadow: var(--shadow-sm);
-}
-
-/* ================= LAYOUT ================= */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 4rem 1.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-/* ================= HERO ================= */
-.hero-section {
-    text-align: center;
-    max-width: 760px;
-    margin: auto;
-}
-
-.hero-badge {
-    display: inline-block;
-    padding: 0.35rem 0.9rem;
-    border-radius: 999px;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
-
-.hero-title {
-    font-size: clamp(2.4rem, 5vw, 3.5rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.2rem;
-}
-
-.gradient-text {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-description {
-    color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-}
-
-/* ================= STATS ================= */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.2rem;
-}
-
-.stat-item {
-    background: white;
-    border: 1px solid var(--border-light);
-    border-radius: 14px;
-    padding: 1.5rem;
-}
-
-.stat-number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--accent);
-}
-
-/* ================= SECTION HEADER ================= */
-.section-header {
-    margin-bottom: 3rem;
-}
-
-.section-title {
-    font-size: clamp(1.8rem, 4vw, 2.4rem);
-    font-weight: 800;
-}
-
-.section-line {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--primary));
-    border-radius: 2px;
-    margin-top: 0.6rem;
-}
-
-/* ================= CARDS ================= */
-.project-card,
-.skill-card,
-.achievement-card,
-.contact-card {
-    background: white;
-    border: 1px solid var(--border-light);
-    border-radius: 18px;
-    padding: 2rem;
-    transition: 0.25s ease;
-}
-
-.project-card:hover,
-.skill-card:hover,
-.achievement-card:hover,
-.contact-card:hover {
-    border-color: var(--accent);
-    box-shadow: var(--shadow-lg);
-}
-
-/* ================= BADGES ================= */
-.featured-badge,
-.project-status {
-    background: var(--accent);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-    border-radius: 999px;
-}
-
-/* ================= CONTACT ================= */
-.contact-title {
-    font-size: clamp(2.3rem, 5vw, 3.6rem);
-    font-weight: 900;
-}
-
-.contact-footer {
-    margin-top: 3rem;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-/* ================= MOBILE REFINEMENT ================= */
+/* ================= MOBILE FIX ================= */
 @media (max-width: 768px) {
-    .container {
-        padding: 2.5rem 1.2rem;
+
+    /* 1. Disable background text on mobile */
+    .background-text {
+        display: none;
     }
 
+    /* 2. Fix navbar layout */
     .nav-container {
         flex-direction: column;
-        gap: 0.8rem;
+        align-items: stretch;
+        gap: 0.75rem;
     }
 
+    .nav-tabs {
+        width: 100%;
+        padding: 0.4rem;
+        justify-content: space-between;
+    }
+
+    .tab {
+        flex: 1;
+        text-align: center;
+        padding: 0.6rem 0;
+        font-size: 0.8rem;
+    }
+
+    /* 3. Reduce container padding */
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    /* 4. Hero spacing fix */
+    .hero-section {
+        padding: 1.5rem 0;
+    }
+
+    .hero-title {
+        line-height: 1.15;
+    }
+
+    /* 5. Force clean vertical spacing between sections */
+    section,
+    .projects-section,
+    .skills-section,
+    .contact-container {
+        margin-top: 3rem;
+    }
+
+    /* 6. Cards: stack cleanly */
+    .projects-grid,
+    .skills-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    /* 7. Cards padding reduction */
+    .project-card,
+    .skill-card,
+    .achievement-card,
+    .contact-card {
+        padding: 1.5rem;
+    }
+
+    /* 8. Kill hover transforms on mobile */
     .project-card:hover,
     .skill-card:hover,
     .achievement-card:hover {
@@ -251,7 +72,13 @@ body {
         box-shadow: var(--shadow-md);
     }
 
-    .background-text {
-        font-size: 30vw;
+    /* 9. Contact cards alignment */
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-card-content {
+        text-align: center;
     }
 }
