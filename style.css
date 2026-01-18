@@ -1,4 +1,39 @@
 /* =========================
+   HARD FORCE LIGHT MODE
+   (ANDROID / CHROME FIX)
+========================= */
+
+/* Tell browser NEVER to darken */
+:root {
+    color-scheme: light !important;
+}
+
+/* Kill prefers-color-scheme dark */
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background: #ffffff !important;
+        color: #0f0f0f !important;
+    }
+
+    * {
+        background-color: transparent !important;
+        color: inherit !important;
+        filter: none !important;
+    }
+}
+
+/* Absolute paint enforcement */
+html {
+    background: #ffffff !important;
+}
+
+body {
+    background: #ffffff !important;
+    color: #0f0f0f !important;
+    -webkit-text-fill-color: #0f0f0f !important;
+}
+
+/* =========================
    ROOT VARIABLES
 ========================= */
 :root {
