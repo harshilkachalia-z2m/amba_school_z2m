@@ -1,899 +1,155 @@
-/* HARSHIL KACHALIA PORTFOLIO - CORE DESIGN SYSTEM 2026
-    Theme: Kinetic Amber / Deep Space
+/* HARSHIL KACHALIA - MASTER PORTFOLIO 2026 
+   Optimized for PC (Massive) & Mobile (High-Visibility)
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap');
 
 :root {
-    /* Color Palette */
-    --accent: #f97316;
-    --accent-glow: rgba(249, 115, 22, 0.4);
-    --accent-low: rgba(249, 115, 22, 0.1);
-    --bg-dark: #050505;
-    --panel-bg: rgba(15, 15, 15, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --accent: #ff9100;       /* High-Visibility Amber */
+    --bg-dark: #121214;      /* Lighter Deep Charcoal (Fixes mobile darkness) */
+    --panel-bg: rgba(30, 30, 35, 0.95); /* Solid panels for sharp text */
     --text-main: #ffffff;
-    --text-dim: #a1a1aa;
-    
-    /* Spacing System */
-    --section-pad: 120px;
-    --container-max: 1440px;
-    
-    /* Animation Timing */
-    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-mid: 0.4s var(--ease-out);
+    --text-dim: #d1d1d6;     /* Brighter dim text for mobile */
 }
 
-/* 1. RESET & BASE FOUNDATION */
+/* 1. GLOBAL SETTINGS - FIXES "IMAGE-LIKE" FONT */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: default;
-}
-
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+    -webkit-font-smoothing: subpixel-antialiased; /* Sharpens font on Mobile */
+    text-rendering: optimizeLegibility;
 }
 
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Plus Jakarta Sans', sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* 2. ATMOSPHERIC ELEMENTS (LARGE SCALE) */
-.grain-overlay {
-    position: fixed;
-    inset: 0;
-    background: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.04;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-.gradient-orb {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(140px);
-    z-index: -1;
-    will-change: transform;
-}
-
-.orb-1 { width: 60vw; height: 60vw; background: var(--accent); top: -20%; right: -10%; opacity: 0.2; }
-.orb-2 { width: 50vw; height: 50vw; background: #7c2d12; bottom: -10%; left: -5%; opacity: 0.15; }
-.orb-3 { width: 30vw; height: 30vw; background: #fbbf24; top: 40%; left: 20%; opacity: 0.1; }
-
-.background-text {
-    position: fixed;
-    bottom: -5vw;
-    left: -2vw;
-    font-size: 22vw;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.02);
-    font-family: 'Space Grotesk', sans-serif;
-    line-height: 0.8;
-    z-index: -2;
-    user-select: none;
-    pointer-events: none;
-}
-
-/* 3. NAVIGATION (ULTRA-WIDE) */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 30px 0;
-    z-index: 1000;
-    transition: var(--transition-mid);
-}
-
-.nav-container {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, var(--accent), #fbbf24);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    border-radius: 14px;
-    font-size: 1.2rem;
-    box-shadow: 0 10px 20px var(--accent-glow);
-}
-
-.logo-name {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: -1px;
-}
-
-.nav-tabs {
-    display: flex;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 8px;
-    border-radius: 100px;
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-}
-
-.tab {
-    list-style: none;
-    padding: 12px 24px;
-    border-radius: 100px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: 0.3s;
-    color: var(--text-dim);
-}
-
-.tab:hover { color: #fff; }
-.tab.active {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: 0 4px 15px var(--accent-glow);
-}
-
-/* 4. HERO SECTION (FULL IMPACT) */
-.hero-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 40px;
-    max-width: var(--container-max);
-    margin: 0 auto;
-}
-
-.hero-badge {
-    display: inline-block;
-    padding: 8px 16px;
-    background: var(--accent-low);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    border-radius: 100px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
-    width: fit-content;
-}
-
-.hero-title {
-    font-size: clamp(3rem, 10vw, 7.5rem);
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    line-height: 0.95;
-    margin-bottom: 30px;
-    letter-spacing: -4px;
-}
-
-.gradient-text {
-    background: linear-gradient(to right, #fff, var(--accent), #fbbf24);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 5s linear infinite;
-}
-
-@keyframes shine {
-    to { background-position: 200% center; }
-}
-
-.hero-subtitle {
-    font-size: clamp(1.2rem, 3vw, 2rem);
-    color: var(--text-dim);
-    max-width: 800px;
-    margin-bottom: 40px;
-}
-
-/* 5. STATS PANEL (DASHBOARD STYLE) */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 60px;
-    border-top: 1px solid var(--glass-border);
-    padding-top: 60px;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-size: 4rem;
-    font-weight: 800;
-    font-family: 'Space Grotesk', sans-serif;
-    color: var(--accent);
-}
-
-.stat-label {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--text-dim);
-}
-
-/* 6. PROJECT PANELS (WIDE GRID) */
-.tab-content {
-    display: none;
-    padding-top: 120px;
-}
-
-.tab-content.active {
-    display: block;
-    animation: panelIn 0.8s var(--ease-out);
-}
-
-@keyframes panelIn {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.section-header {
-    margin-bottom: 80px;
-}
-
-.section-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.section-line {
-    width: 100px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 10px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.project-card {
-    background: var(--panel-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 40px;
-    padding: 60px;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition-mid);
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--accent-low), transparent);
-    opacity: 0;
-    transition: 0.4s;
-}
-
-.project-card:hover {
-    transform: translateY(-15px);
-    border-color: var(--accent);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-}
-
-.project-card:hover::before { opacity: 1; }
-
-.project-status {
-    background: rgba(255,255,255,0.05);
-    padding: 6px 14px;
-    border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-.project-title {
-    font-size: 2.5rem;
-    margin: 20px 0;
-}
-
-.project-description {
-    font-size: 1.1rem;
-    color: var(--text-dim);
-    margin-bottom: 30px;
-}
-
-/* 7. ACHIEVEMENT PANELS (PREMIUM) */
-.achievements-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.achievement-card {
-    background: var(--panel-bg);
-    border-radius: 40px;
-    padding: 50px;
-    border: 1px solid var(--glass-border);
-}
-
-.achievement-number {
-    font-size: 5rem;
-    font-weight: 800;
-    opacity: 0.1;
-    position: absolute;
-    top: 20px;
-    right: 40px;
-}
-
-.achievement-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-/* 8. CORE COMPETENCIES (SKILLS) */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.skill-card {
-    background: var(--panel-bg);
-    padding: 40px;
-    border-radius: 30px;
-    border: 1px solid var(--glass-border);
-}
-
-.skill-card ul {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.skill-card li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    color: var(--text-dim);
-}
-
-/* 9. CONTACT (ACTION FOCUS) */
-.contact-container {
-    background: var(--panel-bg);
-    padding: 100px;
-    border-radius: 60px;
-    text-align: center;
-    border: 1px solid var(--glass-border);
-}
-
-.contact-card {
-    display: inline-flex;
-    align-items: center;
-    gap: 20px;
-    background: rgba(255,255,255,0.03);
-    padding: 20px 40px;
-    border-radius: 20px;
-    margin: 10px;
-    border: 1px solid var(--glass-border);
-    transition: 0.3s;
-}
-
-.contact-card:hover {
-    background: var(--accent);
-    transform: scale(1.05);
-}
-
-/* 10. MOBILE ARCHITECTURE (THE PANELS SHRINK) */
-@media (max-width: 1024px) {
-    .projects-grid, .achievements-grid, .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-title { font-size: 5rem; letter-spacing: -2px; }
-    .hero-section { padding-top: 150px; }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-container { padding: 0 20px; }
-    .logo-name { display: none; }
-    
-    .hero-title { font-size: 3.5rem; }
-    .container { padding: 60px 20px; }
-    
-    .project-card, .achievement-card {
-        padding: 30px;
-        border-radius: 30px;
-    }
-    
-    .contact-container {
-        padding: 40px 20px;
-        border-radius: 30px;
-    }
-}
-/* HARSHIL KACHALIA PORTFOLIO - CORE DESIGN SYSTEM 2026
-    Theme: High-Contrast Amber / Deep Space (Mobile Optimized)
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap');
-
-:root {
-    /* HIGH CONTRAST COLOR PALETTE */
-    --accent: #ff9100;       /* Brighter Vivid Orange for Mobile Visibility */
-    --accent-glow: rgba(255, 145, 0, 0.6);
-    --accent-low: rgba(255, 145, 0, 0.15);
-    --bg-dark: #050505;
-    --panel-bg: rgba(20, 20, 22, 0.9); /* Darker/More Opaque for better text contrast */
-    --glass-border: rgba(255, 255, 255, 0.15); /* Brighter borders */
-    --text-main: #ffffff;    /* Pure White for maximum legibility */
-    --text-dim: #e4e4e7;     /* Brighter grey (Zinc-200) so it's not "dark" on mobile */
-    
-    /* Spacing System */
-    --section-pad: 120px;
-    --container-max: 1440px;
-    
-    /* Animation Timing */
-    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-mid: 0.4s var(--ease-out);
-}
-
-/* 1. RESET & BASE FOUNDATION */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: default;
-}
-
-html {
-    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    /* Added subtle shadow to all text for mobile clarity */
-    text-shadow: 0px 1px 2px rgba(0,0,0,0.5); 
-}
-
-/* 2. ATMOSPHERIC ELEMENTS (LARGE SCALE) */
+/* 2. ATMOSPHERIC ELEMENTS */
 .grain-overlay {
     position: fixed;
     inset: 0;
     background: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.03; /* Slightly lowered to keep text clean */
+    opacity: 0.02; /* Extremely subtle to avoid "fuzzy" look */
     pointer-events: none;
-    z-index: 9999;
+    z-index: 999;
 }
 
 .gradient-orb {
     position: fixed;
     border-radius: 50%;
-    filter: blur(140px);
+    filter: blur(120px);
     z-index: -1;
-    will-change: transform;
+    opacity: 0.25;
 }
+.orb-1 { width: 60vw; height: 60vw; background: var(--accent); top: -10%; right: -10%; }
+.orb-2 { width: 40vw; height: 40vw; background: #ef4444; bottom: -5%; left: -5%; }
 
-.orb-1 { width: 60vw; height: 60vw; background: var(--accent); top: -20%; right: -10%; opacity: 0.25; }
-.orb-2 { width: 50vw; height: 50vw; background: #7c2d12; bottom: -10%; left: -5%; opacity: 0.2; }
-.orb-3 { width: 30vw; height: 30vw; background: #fbbf24; top: 40%; left: 20%; opacity: 0.15; }
-
-.background-text {
-    position: fixed;
-    bottom: -5vw;
-    left: -2vw;
-    font-size: 22vw;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.02);
-    font-family: 'Space Grotesk', sans-serif;
-    line-height: 0.8;
-    z-index: -2;
-    user-select: none;
-    pointer-events: none;
-}
-
-/* 3. NAVIGATION (ULTRA-WIDE) */
+/* 3. NAVIGATION */
 .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 30px 0;
-    z-index: 1000;
-    transition: var(--transition-mid);
+    top: 0; width: 100%; padding: 25px 0; z-index: 1000;
+    background: rgba(18, 18, 20, 0.9);
+    backdrop-filter: blur(15px);
 }
 
 .nav-container {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, var(--accent), #ffcc00);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    border-radius: 14px;
-    font-size: 1.2rem;
-    box-shadow: 0 10px 20px var(--accent-glow);
-    color: #000; /* Logo text dark for contrast on orange */
-}
-
-.logo-name {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: -1px;
-    color: #fff;
+    max-width: 1400px; margin: 0 auto; padding: 0 30px;
+    display: flex; justify-content: space-between; align-items: center;
 }
 
 .nav-tabs {
-    display: flex;
-    background: rgba(40, 40, 45, 0.8); /* Darker background for mobile tabs */
-    padding: 8px;
-    border-radius: 100px;
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
+    display: flex; list-style: none; background: #222226;
+    padding: 6px; border-radius: 50px; border: 1px solid #333;
 }
 
 .tab {
-    list-style: none;
-    padding: 12px 24px;
-    border-radius: 100px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: 0.3s;
-    color: var(--text-dim);
+    padding: 10px 20px; border-radius: 50px; cursor: pointer;
+    font-weight: 600; color: var(--text-dim); transition: 0.3s;
 }
 
-.tab:hover { color: #fff; }
-.tab.active {
-    background: var(--accent);
-    color: #000; /* Dark text on active orange tab for readability */
-    box-shadow: 0 4px 15px var(--accent-glow);
-}
+.tab.active { background: var(--accent); color: #000; }
 
-/* 4. HERO SECTION (FULL IMPACT) */
-.hero-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 40px;
-    max-width: var(--container-max);
-    margin: 0 auto;
-}
+/* 4. CONTENT WRAPPER */
+.container { max-width: 1400px; margin: 0 auto; padding: 120px 30px; }
 
-.hero-badge {
-    display: inline-block;
-    padding: 8px 16px;
-    background: var(--accent-low);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    border-radius: 100px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
-    width: fit-content;
-}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.6s ease-out; }
 
-.hero-title {
-    font-size: clamp(3rem, 10vw, 7.5rem);
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    line-height: 0.95;
-    margin-bottom: 30px;
-    letter-spacing: -4px;
-}
-
-.gradient-text {
-    background: linear-gradient(to right, #fff, var(--accent), #ffdb4d);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 5s linear infinite;
-}
-
-@keyframes shine {
-    to { background-position: 200% center; }
-}
-
-.hero-subtitle {
-    font-size: clamp(1.2rem, 3vw, 2rem);
-    color: var(--text-dim);
-    max-width: 800px;
-    margin-bottom: 40px;
-}
-
-/* 5. STATS PANEL (DASHBOARD STYLE) */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 60px;
-    border-top: 1px solid var(--glass-border);
-    padding-top: 60px;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-size: 4rem;
-    font-weight: 800;
-    font-family: 'Space Grotesk', sans-serif;
-    color: var(--accent);
-    text-shadow: 0 0 20px var(--accent-glow);
-}
-
-.stat-label {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--text-dim);
-}
-
-/* 6. PROJECT PANELS (WIDE GRID) */
-.tab-content {
-    display: none;
-    padding-top: 120px;
-}
-
-.tab-content.active {
-    display: block;
-    animation: panelIn 0.8s var(--ease-out);
-}
-
-@keyframes panelIn {
-    from { opacity: 0; transform: translateY(40px); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.section-header {
-    margin-bottom: 80px;
-}
-
-.section-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.section-line {
-    width: 100px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 10px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.project-card {
-    background: var(--panel-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 40px;
-    padding: 60px;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition-mid);
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--accent-low), transparent);
-    opacity: 0;
-    transition: 0.4s;
-}
-
-.project-card:hover {
-    transform: translateY(-15px);
-    border-color: var(--accent);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-}
-
-.project-card:hover::before { opacity: 1; }
-
-.project-status {
-    background: rgba(255,255,255,0.1);
-    padding: 6px 14px;
-    border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--accent);
-}
-
-.project-title {
-    font-size: 2.5rem;
-    margin: 20px 0;
-    color: #fff;
-}
-
-.project-description {
-    font-size: 1.1rem;
-    color: var(--text-dim);
-    margin-bottom: 30px;
-}
-
-/* 7. ACHIEVEMENT PANELS (PREMIUM) */
-.achievements-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.achievement-card {
-    background: var(--panel-bg);
-    border-radius: 40px;
-    padding: 50px;
-    border: 1px solid var(--glass-border);
-    position: relative;
-}
-
-.achievement-number {
-    font-size: 5rem;
-    font-weight: 800;
-    opacity: 0.15; /* Increased for mobile visibility */
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    color: var(--accent);
-}
-
-.achievement-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-/* 8. CORE COMPETENCIES (SKILLS) */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.skill-card {
-    background: var(--panel-bg);
-    padding: 40px;
-    border-radius: 30px;
-    border: 1px solid var(--glass-border);
-}
-
-.skill-card ul {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.skill-card li {
-    padding: 10px 0; /* Slightly larger padding for touch targets */
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    color: var(--text-dim);
-}
-
-/* 9. CONTACT (ACTION FOCUS) */
-.contact-container {
-    background: var(--panel-bg);
-    padding: 100px;
-    border-radius: 60px;
-    text-align: center;
-    border: 1px solid var(--glass-border);
-}
-
-.contact-card {
-    display: inline-flex;
-    align-items: center;
-    gap: 20px;
-    background: rgba(255,255,255,0.05);
-    padding: 20px 40px;
-    border-radius: 20px;
-    margin: 10px;
-    border: 1px solid var(--glass-border);
-    transition: 0.3s;
-    color: #fff;
-    text-decoration: none;
-}
-
-.contact-card:hover {
-    background: var(--accent);
-    color: #000;
-    transform: scale(1.05);
-}
-
-/* 10. MOBILE ARCHITECTURE (THE PANELS SHRINK) */
-@media (max-width: 1024px) {
-    .projects-grid, .achievements-grid, .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-title { font-size: 5rem; letter-spacing: -2px; }
-    .hero-section { padding-top: 150px; }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-container { padding: 0 20px; }
-    .logo-name { display: none; }
-    
-    .hero-title { font-size: 3.8rem; } /* Slightly larger for impact on mobile */
-    .container { padding: 60px 20px; }
-    
-    .project-card, .achievement-card {
-        padding: 40px 25px;
-        border-radius: 30px;
-    }
-    
-    .contact-container {
-        padding: 40px 20px;
-        border-radius: 30px;
-    }
-
-    .tab {
-        padding: 10px 16px;
-        font-size: 0.85rem;
-    }
-}
-/* --- THE SWITCH LINE --- */
-@media (max-width: 768px) { 
-    
-    /* --- MOBILE DESIGN --- */
-    .projects-grid {
-        grid-template-columns: 1fr; /* Snaps to 1 large panel for easy scrolling */
-    }
-    
+/* ==========================================
+   5. LAPTOP & PC DESIGN (Large/Wide)
+   ========================================== */
+@media (min-width: 769px) {
     .hero-title {
-        font-size: 3.8rem; /* Shrinks the massive font so it fits the phone screen */
+        font-size: 7.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        line-height: 0.9;
+        margin-bottom: 40px;
     }
+    .projects-grid, .achievements-grid, .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    .project-card, .achievement-card {
+        padding: 60px;
+        background: var(--panel-bg);
+        border-radius: 40px;
+        border: 1px solid #333;
+    }
+    .stat-number { font-size: 5rem; font-weight: 800; color: var(--accent); }
+    .stats-grid { display: flex; justify-content: space-around; padding: 80px 0; }
+}
+
+/* ==========================================
+   6. MOBILE DESIGN (High-Visibility/Stacked)
+   ========================================== */
+@media (max-width: 768px) {
+    body {
+        background-color: #1a1a1c; /* Lighter background for mobile screen glare */
+    }
+    .hero-title {
+        font-size: 3.2rem; /* Clean and readable */
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+    .projects-grid, .achievements-grid, .skills-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    .project-card, .achievement-card {
+        padding: 35px 25px;
+        background: #252529; /* Brighter panel for high contrast */
+        border-radius: 30px;
+        border: 1px solid #444; /* More visible border */
+    }
+    .project-title { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
+    .project-description { font-size: 1rem; color: #e1e1e6; }
+    
+    .stats-grid {
+        display: grid; grid-template-columns: 1fr;
+        gap: 30px; text-align: center;
+        background: #252529; padding: 40px; border-radius: 30px;
+    }
+    .stat-number { font-size: 3.5rem; font-weight: 800; color: var(--accent); }
+
+    /* Hide background text on mobile to keep it clean */
+    .background-text { display: none; }
+}
+
+/* COMMON UTILITIES */
+.gradient-text {
+    background: linear-gradient(to right, #fff, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
