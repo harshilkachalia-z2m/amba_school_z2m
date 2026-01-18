@@ -109,13 +109,14 @@ body {
 
 /* Navigation */
 .navbar {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(10, 14, 26, 0.7);
     backdrop-filter: blur(20px) saturate(180%);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.1);
 }
 
 .nav-container {
@@ -136,7 +137,7 @@ body {
 .logo {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg, #00d9ff, #a78bfa);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -144,7 +145,7 @@ body {
     font-size: 1.25rem;
     font-weight: 700;
     color: white;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
 }
 
 .logo-name {
@@ -158,10 +159,10 @@ body {
     display: flex;
     list-style: none;
     gap: 0.5rem;
-    background: rgba(15, 23, 42, 0.4);
+    background: rgba(10, 14, 26, 0.5);
     padding: 0.5rem;
     border-radius: 12px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(0, 217, 255, 0.15);
 }
 
 .tab {
@@ -175,14 +176,14 @@ body {
 }
 
 .tab:hover {
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(0, 217, 255, 0.15);
     color: var(--light);
 }
 
 .tab.active {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: linear-gradient(135deg, #00d9ff, #00b8d4);
     color: white;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.5);
 }
 
 .container {
@@ -224,10 +225,10 @@ body {
 .hero-badge {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
     border-radius: 50px;
-    color: var(--primary-light);
+    color: #5ce1ff;
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 2rem;
@@ -243,7 +244,7 @@ body {
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+    background: linear-gradient(135deg, #5ce1ff, #a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -277,8 +278,8 @@ body {
 
 .stat-item {
     padding: 2rem;
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid var(--border);
+    background: rgba(10, 14, 26, 0.7);
+    border: 1px solid rgba(0, 217, 255, 0.2);
     border-radius: 16px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
@@ -286,14 +287,14 @@ body {
 
 .stat-item:hover {
     transform: translateY(-5px);
-    border-color: rgba(59, 130, 246, 0.4);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+    border-color: rgba(0, 217, 255, 0.5);
+    box-shadow: 0 8px 30px rgba(0, 217, 255, 0.3);
 }
 
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+    background: linear-gradient(135deg, #5ce1ff, #fbbf24);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -323,7 +324,7 @@ body {
 .section-line {
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, #00d9ff, #fbbf24);
     border-radius: 2px;
 }
 
@@ -335,8 +336,8 @@ body {
 }
 
 .project-card {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid var(--border);
+    background: rgba(10, 14, 26, 0.7);
+    border: 1px solid rgba(0, 217, 255, 0.2);
     border-radius: 20px;
     padding: 2.5rem;
     backdrop-filter: blur(10px);
@@ -352,7 +353,7 @@ body {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, #00d9ff, #fbbf24);
     transform: scaleX(0);
     transition: transform 0.4s ease;
 }
@@ -363,12 +364,12 @@ body {
 
 .project-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(59, 130, 246, 0.4);
-    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+    border-color: rgba(0, 217, 255, 0.5);
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.4);
 }
 
 .project-card.featured {
-    border-color: rgba(139, 92, 246, 0.4);
+    border-color: rgba(167, 139, 250, 0.4);
 }
 
 .featured-badge {
@@ -376,7 +377,7 @@ body {
     top: 1.5rem;
     right: 1.5rem;
     padding: 0.4rem 1rem;
-    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    background: linear-gradient(135deg, #a78bfa, #00d9ff);
     color: white;
     border-radius: 50px;
     font-size: 0.75rem;
@@ -394,12 +395,12 @@ body {
 .project-icon {
     width: 60px;
     height: 60px;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(0, 217, 255, 0.15);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-light);
+    color: #5ce1ff;
 }
 
 .project-status {
@@ -435,10 +436,10 @@ body {
 
 .tech-tag {
     padding: 0.4rem 1rem;
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
     border-radius: 50px;
-    color: var(--primary-light);
+    color: #5ce1ff;
     font-size: 0.8rem;
     font-weight: 500;
 }
