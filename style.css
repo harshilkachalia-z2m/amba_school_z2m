@@ -1,144 +1,69 @@
-/* =========================
-   UNIVERSAL DOT GRID
-   (DESKTOP + MOBILE SAFE)
-========================= */
-.dot-overlay {
-    position: fixed;
-    inset: 0;
-    background-color: #ffffff;
-    background-image: radial-gradient(
-        rgba(0, 0, 0, 0.14) 0.8px,
-        transparent 0.9px
-    );
-    background-size: 24px 24px;
-    z-index: -1;
-    pointer-events: none;
-}
-body {
-    position: relative;
-    z-index: 0;
-}
+/* =====================================================
+   COLOR SYSTEM (LIKE YOUR FRIEND'S SITE)
+===================================================== */
 
-body > *:not(.dot-overlay):not(.grain-overlay):not(.gradient-orb) {
-    position: relative;
-    z-index: 1;
-}
-
-/* =========================
-   HARD FORCE LIGHT MODE
-   (ANDROID / CHROME FIX)
-========================= */
-
-/* Tell browser NEVER to darken */
 :root {
-    color-scheme: light !important;
+    --bg: #ffffff;
+    --text: #0f0f0f;
+    --panel: rgba(255, 255, 255, 0.88);
+    --border: rgba(0, 0, 0, 0.08);
+    --dot: rgba(0, 0, 0, 0.08);
 }
 
-/* Kill prefers-color-scheme dark */
 @media (prefers-color-scheme: dark) {
-    html, body {
-        background: #ffffff !important;
-        color: #0f0f0f !important;
-    }
-
-    * {
-        background-color: transparent !important;
-        color: inherit !important;
-        filter: none !important;
+    :root {
+        --bg: #0b0b0b;
+        --text: #f5f5f5;
+        --panel: rgba(20, 20, 20, 0.9);
+        --border: rgba(255, 255, 255, 0.12);
+        --dot: rgba(255, 255, 255, 0.08);
     }
 }
 
-/* Absolute paint enforcement */
-html {
-    background: #ffffff !important;
-}
+/* =====================================================
+   BASE RESET
+===================================================== */
 
-body {
-    background: #ffffff !important;
-    color: #0f0f0f !important;
-    -webkit-text-fill-color: #0f0f0f !important;
-}
-
-/* =========================
-   ROOT VARIABLES
-========================= */
-:root {
-    --bg-main: #ffffff;
-    --bg-panel: rgba(255, 255, 255, 0.88);
-    --text-main: #0f0f0f;
-    --text-muted: #5a5a5a;
-    --border-soft: rgba(0, 0, 0, 0.08);
-    --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 28px 70px rgba(0, 0, 0, 0.14);
-    --radius-lg: 22px;
-    --radius-md: 14px;
-    --transition: all 0.35s ease;
-}
-
-/* =========================
-   RESET
-========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    color-scheme: light dark;
+}
+
 body {
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg-main);
-    color: var(--text-main);
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.65;
     overflow-x: hidden;
+    position: relative;
 }
 
-/* =========================
-   SYMMETRICAL DOT GRID
-========================= */
-body::before {
-    content: "";
+/* =====================================================
+   DOT BACKGROUND (CLEAN, NOT GRAIN)
+===================================================== */
+
+.dot-overlay {
     position: fixed;
     inset: 0;
+    background-color: var(--bg);
     background-image: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.06) 0.6px,
-        transparent 0.7px
+        var(--dot) 0.7px,
+        transparent 0.8px
     );
-    background-size: 22px 22px;
-    z-index: -3;
-}
-
-/* =========================
-   GRAIN OVERLAY
-========================= */
-.grain-overlay {
-    position: fixed;
-    inset: 0;
-    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-    opacity: 0.04;
+    background-size: 24px 24px;
     pointer-events: none;
-    z-index: -2;
-}
-
-/* =========================
-   SOFT MONO ORBS
-========================= */
-.gradient-orb {
-    position: fixed;
-    width: 420px;
-    height: 420px;
-    background: radial-gradient(circle, rgba(0,0,0,0.12), transparent 70%);
-    filter: blur(70px);
     z-index: -1;
 }
 
-.orb-1 { top: -140px; left: -140px; }
-.orb-2 { bottom: -140px; right: -140px; }
-.orb-3 { top: 45%; left: 60%; }
-
-/* =========================
+/* =====================================================
    CENTERED NAME (HARSHIL)
-========================= */
+===================================================== */
+
 .background-text {
     position: fixed;
     top: 50%;
@@ -147,30 +72,24 @@ body::before {
     font-size: clamp(120px, 18vw, 280px);
     font-weight: 900;
     letter-spacing: -8px;
-    color: rgba(0, 0, 0, 0.035);
-    z-index: -2;
+    color: color-mix(in srgb, var(--text) 6%, transparent);
+    z-index: -1;
     pointer-events: none;
     user-select: none;
     white-space: nowrap;
-    animation: floatSlow 14s ease-in-out infinite;
 }
 
-@keyframes floatSlow {
-    0% { transform: translate(-50%, -50%) translateY(0); }
-    50% { transform: translate(-50%, -50%) translateY(-12px); }
-    100% { transform: translate(-50%, -50%) translateY(0); }
-}
-
-/* =========================
+/* =====================================================
    NAVBAR
-========================= */
+===================================================== */
+
 .navbar {
     position: sticky;
     top: 0;
     backdrop-filter: blur(14px);
-    background: rgba(255, 255, 255, 0.75);
-    border-bottom: 1px solid var(--border-soft);
-    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 75%, transparent);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
 }
 
 .nav-container {
@@ -182,26 +101,15 @@ body::before {
     align-items: center;
 }
 
-.logo-section {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
 .logo {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: #000;
-    color: #fff;
+    background: var(--text);
+    color: var(--bg);
     display: grid;
     place-items: center;
     font-weight: 800;
-}
-
-.logo-name {
-    font-weight: 600;
-    letter-spacing: 0.4px;
 }
 
 .nav-tabs {
@@ -212,218 +120,59 @@ body::before {
 
 .tab {
     cursor: pointer;
-    font-weight: 500;
-    color: var(--text-muted);
+    color: color-mix(in srgb, var(--text) 65%, transparent);
     position: relative;
-    transition: var(--transition);
 }
 
-.tab::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: #000;
-    transition: var(--transition);
-}
-
-.tab:hover,
 .tab.active {
-    color: #000;
+    color: var(--text);
 }
 
-.tab.active::after {
-    width: 100%;
-}
+/* =====================================================
+   LAYOUT & PANELS
+===================================================== */
 
-/* =========================
-   LAYOUT
-========================= */
 .container {
     max-width: 1200px;
     margin: auto;
     padding: 90px 28px;
 }
 
-/* =========================
-   HERO
-========================= */
-.hero-section {
-    background: var(--bg-panel);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-soft);
+.hero-section,
+.project-card,
+.skill-card,
+.achievement-card,
+.contact-container {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 22px;
     padding: 64px;
-    box-shadow: var(--shadow-soft);
-    transition: var(--transition);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-.hero-section:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-}
-
-.hero-badge {
-    display: inline-block;
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border-soft);
-    font-size: 14px;
-    margin-bottom: 22px;
-}
+/* =====================================================
+   TITLES
+===================================================== */
 
 .hero-title {
     font-size: 48px;
     font-weight: 800;
-    margin-bottom: 18px;
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, #000, #555);
+    background: linear-gradient(
+        90deg,
+        var(--text),
+        color-mix(in srgb, var(--text) 50%, transparent)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero-subtitle {
-    font-size: 18px;
-    color: var(--text-muted);
-    margin-bottom: 26px;
-}
-
-/* =========================
-   STATS
-========================= */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 26px;
-    margin-top: 42px;
-}
-
-.stat-item {
-    padding: 26px;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-soft);
-    text-align: center;
-    transition: var(--transition);
-}
-
-.stat-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-soft);
-}
-
-.stat-number {
-    font-size: 36px;
-    font-weight: 800;
-}
-
-.stat-label {
-    color: var(--text-muted);
-}
-
-/* =========================
-   SECTIONS
-========================= */
-.section-header {
-    margin-bottom: 40px;
-}
-
-.section-title {
-    font-size: 32px;
-    font-weight: 800;
-}
-
-.section-line {
-    width: 60px;
-    height: 3px;
-    background: #000;
-    margin-top: 12px;
-}
-
-/* =========================
-   CARDS
-========================= */
-.projects-grid,
-.achievements-grid,
-.skills-grid,
-.contact-grid {
-    display: grid;
-    gap: 28px;
-}
-
-.projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-.project-card,
-.achievement-card,
-.skill-card,
-.contact-card {
-    background: var(--bg-panel);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-soft);
-    padding: 32px;
-    box-shadow: var(--shadow-soft);
-    transition: var(--transition);
-}
-
-.project-card:hover,
-.achievement-card:hover,
-.skill-card:hover,
-.contact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-}
-
-.featured {
-    border: 2px solid #000;
-}
-
-/* =========================
-   TAGS
-========================= */
-.tech-tag {
-    display: inline-block;
-    margin-top: 10px;
-    margin-right: 8px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border-soft);
-    font-size: 12px;
-}
-
-/* =========================
-   CONTACT
-========================= */
-.contact-container {
-    background: var(--bg-panel);
-    border-radius: var(--radius-lg);
-    padding: 64px;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-soft);
-}
-
-.contact-card {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.contact-card-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #000;
-    color: #fff;
-    display: grid;
-    place-items: center;
-}
-
-/* =========================
+/* =====================================================
    TABS
-========================= */
+===================================================== */
+
 .tab-content {
     display: none;
 }
@@ -436,7 +185,7 @@ body::before {
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(22px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -444,35 +193,17 @@ body::before {
     }
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 36px;
     }
 
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
     .hero-section,
     .contact-container {
-        padding: 42px;
+        padding: 40px;
     }
-}
-/* =========================
-   FORCE LIGHT MODE (MOBILE FIX)
-========================= */
-:root {
-    color-scheme: light;
-}
-
-html, body {
-    background-color: #ffffff !important;
-    color: #0f0f0f !important;
-}
-/* Prevent Chrome / Android auto dark mode */
-* {
-    -webkit-text-fill-color: currentColor;
 }
