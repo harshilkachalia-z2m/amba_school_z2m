@@ -12,8 +12,9 @@
     --accent: #06b6d4;
     --dark: #0f172a;
     --darker: #020617;
-    --light: #f8fafc;
-    --gray: #64748b;
+    --light: #ffffff;
+    --gray: #cbd5e1;
+    --gray-medium: #94a3b8;
     --border: rgba(59, 130, 246, 0.1);
 }
 
@@ -98,7 +99,7 @@ body {
     transform: translate(-50%, -50%) rotate(-5deg);
     font-size: clamp(10rem, 20vw, 25rem);
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.015);
+    color: rgba(255, 255, 255, 0.02);
     z-index: 0;
     pointer-events: none;
     user-select: none;
@@ -258,7 +259,7 @@ body {
 .hero-description {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #94a3b8;
+    color: var(--gray);
     margin-bottom: 3rem;
 }
 
@@ -304,6 +305,7 @@ body {
     color: var(--gray);
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 500;
 }
 
 /* Section Headers */
