@@ -1,41 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Title (MOST IMPORTANT FOR GOOGLE) -->
-  <title>Harshil Kachalia | Web Developer Portfolio</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Harshil Kachalia is a web developer building modern, responsive websites using HTML, CSS, and JavaScript. View projects and contact details.">
-  <meta name="keywords" content="Harshil Kachalia, web developer, frontend developer, portfolio, HTML, CSS, JavaScript">
-  <meta name="author" content="Harshil Kachalia">
-
-  <!-- Open Graph (for Google + WhatsApp + LinkedIn previews) -->
-  <meta property="og:title" content="Harshil Kachalia | Web Developer">
-  <meta property="og:description" content="Portfolio website of Harshil Kachalia, showcasing web development projects and skills.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://harshilkachalia.github.io/">
-  <!-- Optional image later -->
-  <!-- <meta property="og:image" content="https://harshilkachalia.github.io/preview.png"> -->
-
-  <!-- Favicon (optional but professional) -->
-  <link rel="icon" href="favicon.ico">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshil Kachalia - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">HK</h1>
+            <ul class="nav-tabs">
+                <li class="tab active" onclick="showTab('home')">Home</li>
+                <li class="tab" onclick="showTab('achievements')">Achievements</li>
+                <li class="tab" onclick="showTab('contact')">Contact</li>
+            </ul>
+        </div>
+    </nav>
 
-  <section class="hero">
-    <h1>Harshil Kachalia</h1>
-    <h2>Web Developer</h2>
-    <p>I’m learning web development and building modern, responsive websites.</p>
-    <a href="projects.html" class="btn">View My Work</a>
-  </section>
+    <div class="background-text">harshil</div>
 
+    <div id="home" class="tab-content active">
+        <div class="container">
+            <div class="intro-section">
+                <h1 class="main-title">Student • Explorer • Developer</h1>
+                <p class="intro-text">I like developing websites. My name is <strong>Harshil Kachalia</strong>. With a single goal I explore many things in search of a new skill set. I am a seventh grader.</p>
+            </div>
+
+            <div class="projects-section">
+                <h2 class="section-heading">Upcoming Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-icon">🚌</div>
+                        <h3>Bus Finder</h3>
+                        <p>When you enter the place where you want to go, it will suggest multiple buses.</p>
+                        <button class="project-btn">Coming Soon</button>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon">⚖️</div>
+                        <h3>The Beam Scale</h3>
+                        <p>When you search for an item, it shows all the results. It informs about all price levels at all platforms like AMAZON, FLIPKART, MYNTRA, MEESHO, etc.</p>
+                        <button class="project-btn">Coming Soon</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="achievements" class="tab-content">
+        <div class="container">
+            <h2 class="page-heading">All of My Achievements</h2>
+            
+            <div class="achievement-card">
+                <div class="achievement-icon">🏆</div>
+                <h3>District Level Sports Captain</h3>
+                <p>I have gone to the district level as a captain and came in 2nd place. I have won multiple medals in school sports.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">🎖️</div>
+                <h3>Olympiad Achievements</h3>
+                <p>I have participated in multiple olympiads. I have even went to the 2nd level and won many levels.</p>
+                <div class="certificate-placeholder">
+                    <img src="https://via.placeholder.com/400x300/4a90e2/ffffff?text=Olympiad+Certificate" alt="Olympiad Certificate">
+                </div>
+            </div>
+
+            <h2 class="skills-heading"><strong>MY SKILL SETS</strong></h2>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Curious</h3>
+                    <ul>
+                        <li>Always asking questions</li>
+                        <li>Eager to learn new things</li>
+                        <li>Explores different perspectives</li>
+                        <li>Never satisfied with surface-level knowledge</li>
+                        <li>Seeks to understand the 'why' behind everything</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Agile</h3>
+                    <ul>
+                        <li>Adapts quickly to changes</li>
+                        <li>Thinks and acts fast</li>
+                        <li>Flexible in approach</li>
+                        <li>Responsive to new challenges</li>
+                        <li>Efficient problem solver</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Good Grasper</h3>
+                    <ul>
+                        <li>Understands concepts quickly</li>
+                        <li>Retains information effectively</li>
+                        <li>Applies knowledge practically</li>
+                        <li>Connects ideas seamlessly</li>
+                        <li>Masters new skills rapidly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="tab-content">
+        <div class="container">
+            <h1 class="contact-heading">CONTACT ME</h1>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>8866374229</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>rikinkachalia@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
