@@ -1,4 +1,21 @@
 /* =========================
+   UNIVERSAL DOT GRID
+   (DESKTOP + MOBILE SAFE)
+========================= */
+.dot-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: #ffffff;
+    background-image: radial-gradient(
+        rgba(0, 0, 0, 0.14) 0.8px,
+        transparent 0.9px
+    );
+    background-size: 24px 24px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* =========================
    HARD FORCE LIGHT MODE
    (ANDROID / CHROME FIX)
 ========================= */
