@@ -400,3 +400,18 @@ body::before {
         padding: 42px;
     }
 }
+/* =========================
+   FORCE LIGHT MODE (MOBILE FIX)
+========================= */
+:root {
+    color-scheme: light;
+}
+
+html, body {
+    background-color: #ffffff !important;
+    color: #0f0f0f !important;
+}
+/* Prevent Chrome / Android auto dark mode */
+* {
+    -webkit-text-fill-color: currentColor;
+}
