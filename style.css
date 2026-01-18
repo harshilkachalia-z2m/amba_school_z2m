@@ -207,3 +207,63 @@ body {
         padding: 40px;
     }
 }
+.section {
+    margin-bottom: 80px;
+}
+.panel-primary {
+    background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--panel) 96%, transparent),
+        var(--panel)
+    );
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 72px;
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.4);
+}
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 36px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.16);
+}
+   .card-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.card-text {
+    color: color-mix(in srgb, var(--text) 70%, transparent);
+}
+.btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    background: var(--text);
+    color: var(--bg);
+}
