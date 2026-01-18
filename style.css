@@ -14,6 +14,15 @@
     z-index: -1;
     pointer-events: none;
 }
+body {
+    position: relative;
+    z-index: 0;
+}
+
+body > *:not(.dot-overlay):not(.grain-overlay):not(.gradient-orb) {
+    position: relative;
+    z-index: 1;
+}
 
 /* =========================
    HARD FORCE LIGHT MODE
