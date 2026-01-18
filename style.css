@@ -5,12 +5,13 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2a3f5f 100%);
+    color: #e8e8e8;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 .background-text {
@@ -28,13 +29,14 @@ body {
 }
 
 .navbar {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: 1.5rem 0;
+    background: rgba(10, 14, 39, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 1.2rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -349,28 +351,127 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+    
     .nav-tabs {
-        gap: 1rem;
+        gap: 0.5rem;
     }
     
     .tab {
-        padding: 0.4rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .intro-section {
+        padding: 2rem 0;
     }
     
     .main-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.3;
     }
     
     .intro-text {
         font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .section-heading {
+        font-size: 1.8rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .page-heading {
+        font-size: 2rem;
+    }
+
+    .achievement-card {
+        padding: 1.5rem;
+    }
+
+    .achievement-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .skills-heading {
+        font-size: 1.8rem;
+        margin: 3rem 0 2rem 0;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skill-card {
+        padding: 1.5rem;
     }
     
     .contact-heading {
         font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-item {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .contact-item:hover {
+        transform: translateY(-5px);
     }
     
     .background-text {
-        font-size: 30vw;
+        font-size: 35vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .intro-text {
+        font-size: 0.95rem;
+    }
+
+    .section-heading {
+        font-size: 1.5rem;
+    }
+
+    .page-heading {
+        font-size: 1.6rem;
+    }
+
+    .contact-heading {
+        font-size: 2rem;
+    }
+
+    .project-icon, .achievement-icon, .contact-icon {
+        font-size: 2.5rem;
+    }
+
+    .background-text {
+        font-size: 40vw;
     }
 }
