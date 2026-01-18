@@ -433,3 +433,467 @@ body {
         border-radius: 30px;
     }
 }
+/* HARSHIL KACHALIA PORTFOLIO - CORE DESIGN SYSTEM 2026
+    Theme: High-Contrast Amber / Deep Space (Mobile Optimized)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap');
+
+:root {
+    /* HIGH CONTRAST COLOR PALETTE */
+    --accent: #ff9100;       /* Brighter Vivid Orange for Mobile Visibility */
+    --accent-glow: rgba(255, 145, 0, 0.6);
+    --accent-low: rgba(255, 145, 0, 0.15);
+    --bg-dark: #050505;
+    --panel-bg: rgba(20, 20, 22, 0.9); /* Darker/More Opaque for better text contrast */
+    --glass-border: rgba(255, 255, 255, 0.15); /* Brighter borders */
+    --text-main: #ffffff;    /* Pure White for maximum legibility */
+    --text-dim: #e4e4e7;     /* Brighter grey (Zinc-200) so it's not "dark" on mobile */
+    
+    /* Spacing System */
+    --section-pad: 120px;
+    --container-max: 1440px;
+    
+    /* Animation Timing */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-mid: 0.4s var(--ease-out);
+}
+
+/* 1. RESET & BASE FOUNDATION */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    /* Added subtle shadow to all text for mobile clarity */
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.5); 
+}
+
+/* 2. ATMOSPHERIC ELEMENTS (LARGE SCALE) */
+.grain-overlay {
+    position: fixed;
+    inset: 0;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.03; /* Slightly lowered to keep text clean */
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.gradient-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: -1;
+    will-change: transform;
+}
+
+.orb-1 { width: 60vw; height: 60vw; background: var(--accent); top: -20%; right: -10%; opacity: 0.25; }
+.orb-2 { width: 50vw; height: 50vw; background: #7c2d12; bottom: -10%; left: -5%; opacity: 0.2; }
+.orb-3 { width: 30vw; height: 30vw; background: #fbbf24; top: 40%; left: 20%; opacity: 0.15; }
+
+.background-text {
+    position: fixed;
+    bottom: -5vw;
+    left: -2vw;
+    font-size: 22vw;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.02);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 0.8;
+    z-index: -2;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* 3. NAVIGATION (ULTRA-WIDE) */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 0;
+    z-index: 1000;
+    transition: var(--transition-mid);
+}
+
+.nav-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent), #ffcc00);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    border-radius: 14px;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 20px var(--accent-glow);
+    color: #000; /* Logo text dark for contrast on orange */
+}
+
+.logo-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -1px;
+    color: #fff;
+}
+
+.nav-tabs {
+    display: flex;
+    background: rgba(40, 40, 45, 0.8); /* Darker background for mobile tabs */
+    padding: 8px;
+    border-radius: 100px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+.tab {
+    list-style: none;
+    padding: 12px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    color: var(--text-dim);
+}
+
+.tab:hover { color: #fff; }
+.tab.active {
+    background: var(--accent);
+    color: #000; /* Dark text on active orange tab for readability */
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+/* 4. HERO SECTION (FULL IMPACT) */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--accent-low);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    width: fit-content;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 10vw, 7.5rem);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 0.95;
+    margin-bottom: 30px;
+    letter-spacing: -4px;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #fff, var(--accent), #ffdb4d);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--text-dim);
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+/* 5. STATS PANEL (DASHBOARD STYLE) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 60px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--accent);
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.stat-label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+}
+
+/* 6. PROJECT PANELS (WIDE GRID) */
+.tab-content {
+    display: none;
+    padding-top: 120px;
+}
+
+.tab-content.active {
+    display: block;
+    animation: panelIn 0.8s var(--ease-out);
+}
+
+@keyframes panelIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.section-line {
+    width: 100px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.project-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-mid);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-low), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.project-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--accent);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-status {
+    background: rgba(255,255,255,0.1);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.project-title {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    color: #fff;
+}
+
+.project-description {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+}
+
+/* 7. ACHIEVEMENT PANELS (PREMIUM) */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.achievement-card {
+    background: var(--panel-bg);
+    border-radius: 40px;
+    padding: 50px;
+    border: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.achievement-number {
+    font-size: 5rem;
+    font-weight: 800;
+    opacity: 0.15; /* Increased for mobile visibility */
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: var(--accent);
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* 8. CORE COMPETENCIES (SKILLS) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.skill-card {
+    background: var(--panel-bg);
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
+}
+
+.skill-card ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.skill-card li {
+    padding: 10px 0; /* Slightly larger padding for touch targets */
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: var(--text-dim);
+}
+
+/* 9. CONTACT (ACTION FOCUS) */
+.contact-container {
+    background: var(--panel-bg);
+    padding: 100px;
+    border-radius: 60px;
+    text-align: center;
+    border: 1px solid var(--glass-border);
+}
+
+.contact-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin: 10px;
+    border: 1px solid var(--glass-border);
+    transition: 0.3s;
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-card:hover {
+    background: var(--accent);
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* 10. MOBILE ARCHITECTURE (THE PANELS SHRINK) */
+@media (max-width: 1024px) {
+    .projects-grid, .achievements-grid, .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title { font-size: 5rem; letter-spacing: -2px; }
+    .hero-section { padding-top: 150px; }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container { padding: 0 20px; }
+    .logo-name { display: none; }
+    
+    .hero-title { font-size: 3.8rem; } /* Slightly larger for impact on mobile */
+    .container { padding: 60px 20px; }
+    
+    .project-card, .achievement-card {
+        padding: 40px 25px;
+        border-radius: 30px;
+    }
+    
+    .contact-container {
+        padding: 40px 20px;
+        border-radius: 30px;
+    }
+
+    .tab {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+}
+/* --- THE SWITCH LINE --- */
+@media (max-width: 768px) { 
+    
+    /* --- MOBILE DESIGN --- */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Snaps to 1 large panel for easy scrolling */
+    }
+    
+    .hero-title {
+        font-size: 3.8rem; /* Shrinks the massive font so it fits the phone screen */
+    }
+}
