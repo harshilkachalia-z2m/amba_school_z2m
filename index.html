@@ -262,25 +262,49 @@
     </div>
 
     <script>
-       function showTab(tabName) {
+  <!-- NAVIGATION SECTION - Find this in your HTML (around line 20-30) -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo-section">
+            <div class="logo">HK</div>
+            <span class="logo-name">Harshil Kachalia</span>
+        </div>
+        <ul class="nav-tabs">
+            <li class="tab active" onclick="showTab('home')">Home</li>
+            <li class="tab" onclick="showTab('achievements')">Achievements</li>
+            <li class="tab" onclick="showTab('contact')">Contact</li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ===================================== -->
+<!-- SCRIPT SECTION - Find this at the bottom of your HTML, inside <script> tags -->
+<!-- Replace your existing showTab function with this: -->
+
+<script>
+function showTab(tabName) {
+    // Get all tabs and content sections
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
     
-    // Remove active class from all tabs and contents
+    // Remove 'active' from everything
     tabs.forEach(tab => tab.classList.remove('active'));
     contents.forEach(content => content.classList.remove('active'));
     
-    // Add active class to selected content
+    // Add 'active' to the content you want to show
     document.getElementById(tabName).classList.add('active');
     
-    // Add active class to the clicked tab
-    const clickedTab = Array.from(tabs).find(tab => 
-        tab.getAttribute('onclick').includes(tabName)
-    );
-    if (clickedTab) {
-        clickedTab.classList.add('active');
-    }
+    // Add 'active' to the tab that was clicked
+    tabs.forEach(tab => {
+        if (tab.getAttribute('onclick').includes(tabName)) {
+            tab.classList.add('active');
+        }
+    });
 }
+
+// Keep the rest of your existing script below this...
+// (createHexagons function, smooth scroll, parallax effect, etc.)
+</script>
   // Generate floating hexagons
 function createHexagons() {
     for (let i = 0; i < 20; i++) {
