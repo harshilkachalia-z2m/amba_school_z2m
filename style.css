@@ -146,10 +146,20 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 30px;
 }
 
 .logo-section {
-    display: none;
+    display: block;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
 }
 
 .nav-tabs {
@@ -326,6 +336,7 @@ body::after {
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
 }
 
 .stat-item::before {
@@ -912,16 +923,4 @@ body::after {
 .contact-footer {
     padding: 30px;
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    text-align: center;
-}
-
-.contact-footer p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 1.1rem;
-}
-
-/* RESPONSIVE */
-@media
+    border: 1px
