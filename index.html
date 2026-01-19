@@ -262,97 +262,27 @@
     </div>
 
     <script>
-  <!-- NAVIGATION SECTION - Find this in your HTML (around line 20-30) -->
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logo-section">
-            <div class="logo">HK</div>
-            <span class="logo-name">Harshil Kachalia</span>
-        </div>
-        <ul class="nav-tabs">
-            <li class="tab active" onclick="showTab('home')">Home</li>
-            <li class="tab" onclick="showTab('achievements')">Achievements</li>
-            <li class="tab" onclick="showTab('contact')">Contact</li>
-        </ul>
-    </div>
-</nav>
-
-<!-- ===================================== -->
-<!-- SCRIPT SECTION - Find this at the bottom of your HTML, inside <script> tags -->
-<!-- Replace your existing showTab function with this: -->
-
-<script>
+ <script>
 function showTab(tabName) {
-    // Get all tabs and content sections
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
-    
-    // Remove 'active' from everything
+
+    // Remove active class
     tabs.forEach(tab => tab.classList.remove('active'));
     contents.forEach(content => content.classList.remove('active'));
-    
-    // Add 'active' to the content you want to show
+
+    // Show selected content
     document.getElementById(tabName).classList.add('active');
-    
-    // Add 'active' to the tab that was clicked
+
+    // Activate clicked tab
     tabs.forEach(tab => {
-        if (tab.getAttribute('onclick').includes(tabName)) {
+        if (tab.textContent.toLowerCase() === tabName) {
             tab.classList.add('active');
         }
     });
 }
-
-// Keep the rest of your existing script below this...
-// (createHexagons function, smooth scroll, parallax effect, etc.)
 </script>
-  // Generate floating hexagons
-function createHexagons() {
-    for (let i = 0; i < 20; i++) {
-        const hexagon = document.createElement('div');
-        hexagon.className = 'hexagon';
-        
-        // Random positioning
-        hexagon.style.left = Math.random() * 100 + '%';
-        
-        // Random sizes
-        const size = Math.random() * 80 + 40; // 40-120px
-        hexagon.style.width = size + 'px';
-        hexagon.style.height = size + 'px';
-        
-        // Random animation timing
-        hexagon.style.animationDelay = Math.random() * 20 + 's';
-        hexagon.style.animationDuration = (Math.random() * 20 + 20) + 's';
-        
-        // Random opacity variation
-        hexagon.style.setProperty('--hex-opacity', Math.random() * 0.4 + 0.2);
-        
-        document.body.appendChild(hexagon);
-    }
-}
 
-// Create hexagons when page loads
-window.addEventListener('load', createHexagons
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Parallax effect for gradient orbs
-        document.addEventListener('mousemove', (e) => {
-            const orbs = document.querySelectorAll('.gradient-orb');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            orbs.forEach((orb, index) => {
-                const speed = (index + 1) * 20;
-                orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-            });
-        });
     </script>
  );
 </body>
