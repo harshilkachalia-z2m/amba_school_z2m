@@ -297,5 +297,32 @@
             });
         });
     </script>
+   // Generate floating hexagons
+function createHexagons() {
+    for (let i = 0; i < 20; i++) {
+        const hexagon = document.createElement('div');
+        hexagon.className = 'hexagon';
+        
+        // Random positioning
+        hexagon.style.left = Math.random() * 100 + '%';
+        
+        // Random sizes
+        const size = Math.random() * 80 + 40; // 40-120px
+        hexagon.style.width = size + 'px';
+        hexagon.style.height = size + 'px';
+        
+        // Random animation timing
+        hexagon.style.animationDelay = Math.random() * 20 + 's';
+        hexagon.style.animationDuration = (Math.random() * 20 + 20) + 's';
+        
+        // Random opacity variation
+        hexagon.style.setProperty('--hex-opacity', Math.random() * 0.4 + 0.2);
+        
+        document.body.appendChild(hexagon);
+    }
+}
+
+// Create hexagons when page loads
+window.addEventListener('load', createHexagons);
 </body>
 </html>
