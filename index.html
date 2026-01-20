@@ -3,96 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harshil Kachalia</title>
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="dark" />
+  <title>Harshil Kachalia – Portfolio</title>
 
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
+  <!-- Background Effects -->
+  <div class="grain-overlay"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+
   <!-- NAVBAR -->
-  <nav>
+  <nav class="navbar">
     <div class="nav-container">
-      <h1>Harshil Kachalia</h1>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+      <div class="logo-section">
+        <div class="logo">HK</div>
+        <span class="logo-name">Harshil Kachalia</span>
       </div>
+      <ul class="nav-tabs">
+        <li class="tab active" onclick="showTab('home')">Home</li>
+        <li class="tab" onclick="showTab('achievements')">Achievements</li>
+        <li class="tab" onclick="showTab('contact')">Contact</li>
+      </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="container">
-      <h1>Hello, I’m Harshil 👋</h1>
-      <p>
-        I am a student of Class 7 and I am learning web development and building websites.
-      </p>
-    </div>
-  </section>
+  <div class="background-text">Harshil</div>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>School Website</h3>
-          <p>
-            A website created using HTML and CSS and hosted using GitHub Pages.
-          </p>
+  <!-- HOME -->
+  <section id="home" class="tab-content active">
+    <div class="container hero-section">
+      <span class="hero-badge">Portfolio 2026</span>
+
+      <h1 class="hero-title">
+        <span class="gradient-text">Student</span> ·
+        <span class="gradient-text">Explorer</span> ·
+        <span class="gradient-text">Developer</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Seventh grade innovator with a passion for web development
+      </p>
+
+      <p class="hero-description">
+        My name is <strong>Harshil Kachalia</strong>. I like developing websites and
+        exploring new technologies. With a single goal I explore many things in
+        search of a new skill set.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">7th</div>
+          <div class="stat-label">Grade</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2+</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Curiosity</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ACHIEVEMENTS -->
-  <section id="achievements" class="section alt">
+  <section id="achievements" class="tab-content">
     <div class="container">
-      <h2>Achievements</h2>
-      <div class="cards">
-        <div class="card">
-          <p>
-            Participated in different competitions and activities related to technology and learning.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2 class="section-title">Achievements & Recognition</h2>
+      <div class="section-line"></div>
 
-  <!-- SKILLS -->
-  <section id="skills" class="section">
-    <div class="container">
-      <h2>Core Skills</h2>
-      <div class="cards">
-        <div class="card"><p>HTML</p></div>
-        <div class="card"><p>CSS</p></div>
-        <div class="card"><p>Basic Web Design</p></div>
+      <div class="achievement-card">
+        <h3>District Level Sports Captain</h3>
+        <p>
+          Led team to 2nd place at district level competition.
+          Multiple medals in school sports championships.
+        </p>
+      </div>
+
+      <div class="achievement-card">
+        <h3>Olympiad Excellence</h3>
+        <p>
+          Advanced to Level 2 in multiple olympiads.
+          Consistent top performer in academic competitions.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section alt">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Email: example@email.com</p>
-      <p>Phone: +91 XXXXX XXXXX</p>
+  <section id="contact" class="tab-content">
+    <div class="container contact-section">
+      <h2 class="section-title">Let’s Connect</h2>
+
+      <div class="contact-card">
+        <strong>Phone:</strong> 8866374229
+      </div>
+
+      <div class="contact-card">
+        <strong>Email:</strong> rikinkachalia@gmail.com
+      </div>
+
+      <p class="contact-footer">
+        Available for collaborations and exciting projects
+      </p>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Harshil Kachalia. All rights reserved.</p>
-  </footer>
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
-
