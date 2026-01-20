@@ -1038,12 +1038,6 @@ body::before {
 
 .contact-card:hover::after {
   opacity: 1;
-  animation: borderSpin 3s linear infinite;
-}
-
-@keyframes borderSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .contact-card:hover {
@@ -1072,18 +1066,12 @@ body::before {
   position: absolute;
   inset: -100%;
   background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.5), transparent 30%);
-  animation: iconRevolution 3s linear infinite;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
-@keyframes iconRevolution {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .contact-card:hover .contact-card-icon::before {
-  opacity: 1;
+  opacity: 0;
 }
 
 .contact-card:hover .contact-card-icon {
@@ -1101,13 +1089,6 @@ body::before {
 .contact-card:hover .contact-card-icon svg {
   transform: scale(1.15);
   filter: drop-shadow(0 0 20px rgba(168, 85, 247, 1));
-  animation: iconShake 0.6s ease;
-}
-
-@keyframes iconShake {
-  0%, 100% { transform: scale(1.15) rotate(0deg); }
-  25% { transform: scale(1.15) rotate(-10deg); }
-  75% { transform: scale(1.15) rotate(10deg); }
 }
 
 .contact-card-content {
@@ -1406,16 +1387,6 @@ body::before {
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
-  animation: skillFloat 5s ease-in-out infinite;
-}
-
-.skill-card:nth-child(1) { animation-delay: 0s; }
-.skill-card:nth-child(2) { animation-delay: 1s; }
-.skill-card:nth-child(3) { animation-delay: 2s; }
-
-@keyframes skillFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
 }
 
 .skill-card::before {
@@ -1446,12 +1417,6 @@ body::before {
   width: 400px;
   height: 400px;
   background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
-  animation: orbitate 3s linear infinite;
-}
-
-@keyframes orbitate {
-  from { transform: translate(50%, -50%) rotate(0deg); }
-  to { transform: translate(50%, -50%) rotate(360deg); }
 }
 
 .skill-card:hover::after {
@@ -1505,18 +1470,12 @@ body::before {
   position: absolute;
   inset: -50%;
   background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.4), transparent 30%);
-  animation: iconRotate 4s linear infinite;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
-@keyframes iconRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .skill-card:hover .skill-icon-bg::before {
-  opacity: 1;
+  opacity: 0;
 }
 
 .skill-card:hover .skill-icon-bg {
@@ -1541,11 +1500,9 @@ body::before {
   font-weight: 700;
   margin-bottom: 1.5rem;
   background: linear-gradient(135deg, white, var(--accent-purple));
-  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientShift 6s ease infinite;
   transition: all 0.4s ease;
 }
 
@@ -1598,12 +1555,6 @@ body::before {
 .skill-description li:hover::before {
   transform: translateX(-5px) scale(1.3);
   color: var(--accent-blue);
-  animation: arrowBounce 0.6s ease;
-}
-
-@keyframes arrowBounce {
-  0%, 100% { transform: translateX(-5px) scale(1.3); }
-  50% { transform: translateX(-10px) scale(1.3); }
 }
 
 .skill-description li:hover::after {
@@ -1631,7 +1582,6 @@ body::before {
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  animation: badgeFloat 3s ease-in-out infinite, badgeGlow 2s ease-in-out infinite;
   backdrop-filter: blur(10px);
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
@@ -1648,16 +1598,10 @@ body::before {
   font-weight: 900;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, white, var(--accent-purple), var(--accent-blue));
-  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientShift 6s ease infinite, titleBounce 3s ease-in-out infinite;
-}
-
-@keyframes titleBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  transition: all 0.4s ease;
 }
 
 .contact-title:hover {
