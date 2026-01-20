@@ -7,12 +7,14 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<!-- Background Effects -->
 <div class="grain-overlay"></div>
 <div class="gradient-orb orb-1"></div>
 <div class="gradient-orb orb-2"></div>
 <div class="gradient-orb orb-3"></div>
+<div class="background-text">Harshil</div>
 
+<!-- Navbar -->
 <nav class="navbar">
   <div class="nav-container">
     <div class="logo-section">
@@ -20,16 +22,15 @@
       <span class="logo-name">Harshil Kachalia</span>
     </div>
     <ul class="nav-tabs">
-      <li class="tab active" onclick="showTab('home')">Home</li>
-      <li class="tab" onclick="showTab('achievements')">Achievements</li>
-      <li class="tab" onclick="showTab('contact')">Contact</li>
+      <li class="tab active" onclick="navigate('home')">Home</li>
+      <li class="tab" onclick="navigate('achievements')">Achievements</li>
+      <li class="tab" onclick="navigate('contact')">Contact</li>
     </ul>
   </div>
 </nav>
 
-<div class="background-text">Harshil</div>
-
-<div id="home" class="tab-content active">
+<!-- HOME PAGE -->
+<div id="home-page" class="page active">
   <div class="container">
     <div class="hero-section">
       <div class="hero-badge">Portfolio 2026</div>
@@ -59,13 +60,14 @@
       </div>
     </div>
 
+    <!-- Projects Section -->
     <div class="projects-section">
       <div class="section-header">
         <h2 class="section-title">Upcoming Projects</h2>
         <div class="section-line"></div>
       </div>
-
       <div class="projects-grid">
+        <!-- Bus Finder Project -->
         <div class="project-card">
           <div class="project-header">
             <div class="project-icon">
@@ -86,6 +88,7 @@
           </div>
         </div>
 
+        <!-- The Beam Scale Project -->
         <div class="project-card featured">
           <div class="featured-badge">Featured</div>
           <div class="project-header">
@@ -110,13 +113,13 @@
   </div>
 </div>
 
-<div id="achievements" class="tab-content">
+<!-- ACHIEVEMENTS PAGE -->
+<div id="achievements-page" class="page">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Achievements & Recognition</h2>
       <div class="section-line"></div>
     </div>
-
     <div class="achievements-grid">
       <!-- Achievement 1 -->
       <div class="achievement-card premium">
@@ -149,11 +152,11 @@
       </div>
     </div>
 
+    <!-- Skills Section -->
     <div class="section-header skills-section-header">
       <h2 class="section-title">Core Competencies</h2>
       <div class="section-line"></div>
     </div>
-
     <div class="skills-grid">
       <!-- Skill 1 -->
       <div class="skill-card">
@@ -221,7 +224,8 @@
   </div>
 </div>
 
-<div id="contact" class="tab-content">
+<!-- CONTACT PAGE -->
+<div id="contact-page" class="page">
   <div class="container">
     <div class="contact-container">
       <div class="contact-hero">
@@ -229,8 +233,8 @@
         <h1 class="contact-title">Let's Connect</h1>
         <p class="contact-subtitle">Ready to collaborate on the next big idea</p>
       </div>
-
       <div class="contact-grid">
+        <!-- Phone -->
         <div class="contact-card">
           <div class="contact-card-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -243,6 +247,7 @@
           </div>
         </div>
 
+        <!-- Email -->
         <div class="contact-card">
           <div class="contact-card-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -256,7 +261,6 @@
           </div>
         </div>
       </div>
-
       <div class="contact-footer">
         <p>Available for collaborations and exciting projects</p>
       </div>
@@ -265,22 +269,23 @@
 </div>
 
 <script>
-function showTab(tabName) {
+function navigate(page) {
+  const pages = document.querySelectorAll('.page');
   const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
+  pages.forEach(p => p.classList.remove('active'));
+  tabs.forEach(t => t.classList.remove('active'));
 
-  tabs.forEach(tab => tab.classList.remove('active'));
-  contents.forEach(content => content.classList.remove('active'));
-
-  document.getElementById(tabName).classList.add('active');
-
-  tabs.forEach(tab => {
-    if (tab.textContent.toLowerCase() === tabName) {
-      tab.classList.add('active');
-    }
-  });
+  if(page === 'home') {
+    document.getElementById('home-page').classList.add('active');
+    tabs[0].classList.add('active');
+  } else if(page === 'achievements') {
+    document.getElementById('achievements-page').classList.add('active');
+    tabs[1].classList.add('active');
+  } else if(page === 'contact') {
+    document.getElementById('contact-page').classList.add('active');
+    tabs[2].classList.add('active');
+  }
 }
 </script>
-
 </body>
 </html>
